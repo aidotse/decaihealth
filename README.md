@@ -11,6 +11,7 @@ The project includes three main phases (initially two phases, but now extended t
 * **Phase 1** verifies that decentralized machine learning models can be jointly trained based on publicly available healthcare datasets, such as the tabular dataset MIMIC-IV and the image dataset SIIM-ISIC. 
 
 * **Phase 2** inititates by a mutal agreement upon clinical dataset and beneficial machine learning models, followed by decentralized training and validation of those models based on (both regions' own) clinical healthcare data.
+
 <br />
 
 ### Time Plan
@@ -24,12 +25,13 @@ The project will last until the end of 2022, and a tentative time plan for the p
 | 2022-04-29   | Decentralized model jointly trained based on public tabular dataset (e.g., MIMIC-V). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
 | 2022-05-13   | Decentralized model jointly trained based on public image dataset (e.g., SIIM-ISIC). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &cross; |
 | 2022-05-27   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &cross; | &check; |
-<br />
 
+<br />
 
 ## What is Federated Learning?
 
 ![A conceptual illustration of the training cycle in federated learning](./conceptual.png)
+
 <br />
 
 ## Federated Learning with Flower
@@ -38,13 +40,27 @@ The [Flower](https://flower.dev/) framework is a user-friendly framework designe
 
 ### Installation 
 
-An essential prerequisite for the Flower framework is an installation of `python` (Python 3.6 or higher version). The instructions below further assumes an installation of the `pip` package installer for Python. To install latest stable version of Flowert (i.e., latest stable release found on PyPI):
+An essential prerequisite for the Flower framework is a basic installation of `python` (Python 3.6 or higher version). The instructions below further assumes an installation of the `pip3` package installer for Python 3.x. To install latest stable version of Flowert (i.e., latest stable release found on PyPI):
 
- ```pip install flwr ```
+ ```pip3 install flwr ```
 
-   ...or to install latest unstable releases (nightly build):
+  ...or to install latest unstable releases (nightly build):
 
- ```pip install flwr-nightly ```
+ ```pip3 install flwr-nightly ```
+ 
+ The Flower framework is also agnostic towards which machine learning framework that is used in the background (e.g., [PyTorch](https://pytorch.org/) or [TensorFlow](https://www.tensorflow.org/)). For this project, we will, however, use the PyTorch framework for training the models locally. To install the latest stable releases of PyTorch with GPU compute support of CUDA 10.2:
+ 
+ ```pip3 install torch torchvision torchaudio```
+
+  ...or to install the latest stable releases with GPU compute support of CUDA 11.3:
+    
+```pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu113```
+
+  ...or to install the latest stable releases with CPU compute support only:
+  
+```pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu```
+
+<br />  
 
 ## References
 
