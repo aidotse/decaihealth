@@ -30,6 +30,9 @@ The project will last until the end of 2022, and a tentative time plan for the p
 
 ## What is Federated Learning?
 
+The principles of _federated learning_ (as it is known today), were initially proposed by a research team at Google [1]. Federated learning is essentially a machine learning technique for training algorithms across multiple decentralized devices (or clients), without exchanging any data samples between the clients. In contrast to traditional centralized machine learning techniques (where datasets are uploaded to a server and trained centrally), and classical decentralized approaches (which often assume that local datasets are distributed among clients), federated learning instead promotes the idea of training models locally (on local datasets) and only exchanging and distributing the parameters (or weights) of locally trained models. 
+
+
 ![A conceptual illustration of the training cycle in federated learning](./conceptual.png)
 
 <br />
