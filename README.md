@@ -21,7 +21,7 @@ The project will last until the end of 2022, and a tentative time plan for the p
 | :----------- | :------------- | :--------: | :--------: |
 | 2022-04-??   | _SU_: "Dummy" server exposed externally through a fixed IP address and network port.  | &cross; | &check; |
 | 2022-04-??   | **Phase 0 completed:** _RH_ verifies that an arbitrary client is able to communicate with the server at _SU_.  | &cross; | &check; |
-| 2022-04-15   | _Flower_ framework installed at both _RH_ and _SU_. Initial tests to verify that models can be jointly trained and exchanged between both health regions. _Script files for initial tests\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
+| 2022-04-22   | _Flower_ framework installed at both _RH_ and _SU_. Initial tests to verify that models can be jointly trained and exchanged between both health regions. _Script files for initial tests\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
 | 2022-04-29   | Decentralized model jointly trained based on public tabular dataset (e.g., MIMIC-V). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
 | 2022-05-13   | Decentralized model jointly trained based on public image dataset (e.g., SIIM-ISIC). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &cross; |
 | 2022-05-27   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &cross; | &check; |
