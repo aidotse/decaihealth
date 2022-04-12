@@ -41,7 +41,20 @@ The principles of _federated learning_ (as it is known today), were initially pr
 
 The [Flower](https://flower.dev/) framework is a user-friendly framework designed for implementing and traning machinhe learning models in federated settings [2]. Flower is an open-source framework developed as a collaboration between the academic partners _CaMLSys Lab_, _University of Oxford_, _University of Cambridge_, and _University College London_, as well as the industrial partner _Adap_. This framework has been developed according to fundamental key characteristics required for a federated framework, such as _scalability_, _usability_, and _independency_ regarding operating systems and hardware platforms. However, the Flower framework is more than just a federated framework as it can be regarded as _" ...a unified approach to federated learning, analytics, and evaluation."_
 
-### Installation 
+### Hardware Requirements
+
+The Flower framework has been designed as an open-source, extendable, and device agnostic framework. Furthermore, the framework has been designed to be suitable even for devices running lightweight federated learning workloads, such as Raspberry Pi or NVIDIA Jetson, which require minimal or no special configuration. For this project, we have, however, identified the following hardware requirements for _federated clients_ (at least one client in each healthcare region):
+
+* **Minimal:** a machine (physical or virtual) running Ubuntu 20.04 LTS with a  4 cores CPU, 16 GB of RAM, and 100 GB of storage.
+
+* **Requested:** in addition to the minimal requirements, a GPU with compute capability version 6.0+ and CUDA SDK 11.3 (or CUDA SDK 10.2).
+
+_Though we have listed minimal requirements, it is recommended to directly proceed with a system installation according to the requested requirements._
+
+Besides the machines and requirements for federated clients, an additional machine (physical or virtual) is required to act as the _federated server_. Minimal hardware requirements will be sufficient for the federated server. The federated server is only required to be installed at one of both healthcare regions (we suggest _SU_).
+
+
+### Software Installation 
 
 An essential prerequisite for the Flower framework is a basic installation of `python` (Python 3.6 or higher version). The instructions below further assumes an installation of the `pip3` package installer for Python 3.x. To install latest stable version of Flowert (i.e., latest stable release found on PyPI):
 
