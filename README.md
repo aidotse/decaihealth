@@ -12,7 +12,6 @@ The project includes three main phases (initially two phases, but now extended t
 
 * **Phase 2** inititates by a mutal agreement upon clinical dataset and beneficial machine learning models, followed by decentralized training and validation of those models based on (both regions' own) clinical healthcare data.
 
-<br />
 
 ### Time Plan
 The project will last until the end of 2022, and a tentative time plan for the project can be found below. However, it should be noted that this time plan might be subject to changes (in mutual agreement between all the partners within the project). In addition, this time plan will also be updated to reflect the progress of the project (by indicating completed and remaining tasks).
@@ -21,18 +20,19 @@ The project will last until the end of 2022, and a tentative time plan for the p
 | :-: | :----------- | :------------- | :--------: | :--------: |
 |  1  | 2022-04-22   | _SU_: "Dummy" server exposed externally through a fixed IP address and network port.  | &cross; | &check; |
 |  2  | 2022-04-22   | **Phase 0 completed:** _RH_ verifies that an arbitrary client is able to communicate with the server at _SU_.  | &cross; | &check; |
-|  3  | 2022-04-22   | _Flower_ framework installed at both _RH_ and _SU_. Initial tests to verify that models can be jointly trained and exchanged between both health regions. _Script files for initial tests\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
-|  4  | 2022-05-06   | Decentralized model jointly trained based on public tabular dataset (e.g., MIMIC-V). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
-|  5  | 2022-05-06   | Decentralized model jointly trained based on public tabular dataset (e.g., MIMIC-V). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
-|  6  | 2022-05-20   | Decentralized model jointly trained based on public image dataset (e.g., SIIM-ISIC). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &cross; |
+|  3  | 2022-04-22   | _Flower_ framework installed on machines with **minimal requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &cross; | &check; |
+|  4  | 2022-05-06   | Decentralized model jointly trained based on public _tabular dataset_ (e.g., MIMIC-V). <br /> Model trained and validated according to [Example Tabular Data](#example-tabular-data). | &cross; | &check; |
+|  5  | 2022-05-13   | _Flower_ framework installed on machines with **requested requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &cross; | &check; |
+|  6  | 2022-05-20   | Decentralized model jointly trained based on public _imagary dataset_ (e.g., SIIM-ISIC). <br /> Model trained and validated according to [Example Imagary Data](#example-imagary-data). | &cross; | &cross; |
 |  7  | 2022-06-03   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &cross; | &check; |
 
 <br />
 
 ## What is Federated Learning?
 
-The principles of _federated learning_ (as it is known today), were initially proposed by a research team at Google [1]. Federated learning is essentially a machine learning technique for training algorithms across multiple decentralized devices (or clients), without exchanging any data samples between the clients. In contrast to traditional centralized machine learning techniques (where datasets are uploaded to a server and trained centrally), and classical decentralized approaches (which often assume that local datasets are distributed among clients), federated learning instead promotes the idea of training models locally (on local datasets) and only exchanging and distributing the parameters (or weights) of locally trained models. 
+The principles of _federated learning_ (as it is known today), were initially proposed by a research team at Google [[1]](#references). Federated learning is essentially a machine learning technique for training algorithms across multiple decentralized devices (or clients), without exchanging any data samples between the clients. In contrast to traditional centralized machine learning techniques (where datasets are uploaded to a server and trained centrally), and classical decentralized approaches (which often assume that local datasets are distributed among clients), federated learning instead promotes the idea of training models locally (on local datasets) and only exchanging and distributing the parameters (or weights) of locally trained models. 
 
+In practice, federated learning is a _client-server approach_ consisting of a _federated server_ and two (or more) _federated clients_. Each _federated client_ trains a _local model_ for one (or a few) _epochs_. Each locally trained model's parameters (or weights) are then sent to the _federated server_. Next, the _federated server_ aggregates a _joint global model_ (through a particular _aggregation function_). Subsequently, the _aggregated global model_ is sent back to each _federated client_, whereby the training continues locally. The training cycle of _federated learning_ (also referred to as _federated round_) is conceptually illustrated in **Figure 1**. This training cycle is, subsequently, repeated until the _global model_ has converged.
 
 ![A conceptual illustration of the training cycle in federated learning](./conceptual.png)
 
@@ -40,23 +40,21 @@ The principles of _federated learning_ (as it is known today), were initially pr
 
 ## Federated Learning with Flower
 
-The [Flower](https://flower.dev/) framework is a user-friendly framework designed for implementing and traning machinhe learning models in federated settings [2]. Flower is an open-source framework developed as a collaboration between the academic partners _CaMLSys Lab_, _University of Oxford_, _University of Cambridge_, and _University College London_, as well as the industrial partner _Adap_. This framework has been developed according to fundamental key characteristics required for a federated framework, such as _scalability_, _usability_, and _independency_ regarding operating systems and hardware platforms. However, the Flower framework is more than just a federated framework as it can be regarded as _" ...a unified approach to federated learning, analytics, and evaluation."_
+The [Flower](https://flower.dev/) framework is a user-friendly framework designed for implementing and traning machinhe learning models in federated settings [[2]](#references). Flower is an open-source framework developed as a collaboration between the academic partners _CaMLSys Lab_, _University of Oxford_, _University of Cambridge_, and _University College London_, as well as the industrial partner _Adap_. This framework has been developed according to fundamental key characteristics required for a federated framework, such as _scalability_, _usability_, and _independency_ regarding operating systems and hardware platforms. However, the Flower framework is more than just a federated framework as it can be regarded as _" ...a unified approach to federated learning, analytics, and evaluation."_
 
-<br />
 
 ### Hardware Requirements
 
-The Flower framework has been designed as an open-source, extendable, and device agnostic framework. Furthermore, the framework has been designed to be suitable even for devices running lightweight federated learning workloads, such as Raspberry Pi or NVIDIA Jetson, which require minimal or no special configuration. For this project, we have, however, identified the following hardware requirements for _federated clients_ (at least one client in each healthcare region):
+The Flower framework has been designed as an open-source, extendable, and device agnostic framework. Furthermore, the framework has been designed to be suitable even for devices running lightweight federated learning workloads, such as Raspberry Pi or NVIDIA Jetson, which require minimal or no special configuration. For this project, we have, however, identified the following hardware requirements for _federated clients_ (**at least one federated client each is required at both RH and SU**):
 
-* **Minimal:** a machine (physical or virtual) running Ubuntu 20.04 LTS with a  4 cores CPU, 16 GB of RAM, and 100 GB of storage.
+* **Minimal:** a machine (physical or virtual) running Ubuntu 20.04 LTS and with at least the following specification: 4 cores CPU, 16 GB of RAM, and 100 GB of storage.
 
-* **Requested:** in addition to the minimal requirements, a GPU with compute capability version 6.0+ and CUDA SDK 11.3 (or CUDA SDK 10.2).
+* **Requested:** in addition to the minimal requirements, a [GPU with compute capability version 6.0+](https://en.wikipedia.org/wiki/CUDA#GPUs_supported) and [CUDA Toolkit 11.3](https://developer.nvidia.com/cuda-11.3.0-download-archive).
 
 _Though we have listed minimal requirements, it is recommended to directly proceed with a system installation according to the requested requirements._
 
-Besides the machines and requirements for federated clients, an additional machine (physical or virtual) is required to act as the _federated server_. Minimal hardware requirements will be sufficient for the federated server. The federated server is only required to be installed at one of both healthcare regions (we suggest _SU_).
+Besides the machines and requirements for _federated clients_, an additional machine (physical or virtual) is required to act as the _federated server_ (**only one federated server is needed at either RH or SU, and we strongly promote that the server is installed at SU**). Minimal hardware requirements will be sufficient for the _federated server_. 
 
-<br />
 
 ### Software Installation 
 
@@ -68,30 +66,26 @@ An essential prerequisite for the Flower framework is a basic installation of `p
 
  ```pip3 install flwr-nightly ```
  
- The Flower framework is also agnostic towards which machine learning framework that is used in the background (e.g., [PyTorch](https://pytorch.org/) or [TensorFlow](https://www.tensorflow.org/)). For this project, we will, however, use the PyTorch framework for training the models locally. To install the latest stable releases of PyTorch with GPU compute support of CUDA 10.2:
+ The Flower framework is also agnostic towards which machine learning framework that is used in the background (e.g., [PyTorch](https://pytorch.org/) or [TensorFlow](https://www.tensorflow.org/)). For this project, we will, however, use the PyTorch framework for training the models locally. To install the latest stable releases of PyTorch with GPU compute support of CUDA 11.3:
  
- ```pip3 install torch torchvision torchaudio```
-
-  ...or to install the latest stable releases with GPU compute support of CUDA 11.3:
-    
 ```pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cu113```
 
   ...or to install the latest stable releases with CPU compute support only:
   
 ```pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu```
 
-<br />  
 
-### Simple "Hello World" Example
+### Simple Example
 `<TBA>`
-<br />  
 
-### Example Tabular Dataset
-`<TBA>`
-<br />  
 
-### Example Image Dataset
+### Example Tabular Data
 `<TBA>`
+
+
+### Example Imagary Data
+`<TBA>`
+
 <br />  
 
 ## References
