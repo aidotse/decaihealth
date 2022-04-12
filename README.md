@@ -17,14 +17,15 @@ The project includes three main phases (initially two phases, but now extended t
 ### Time Plan
 The project will last until the end of 2022, and a tentative time plan for the project can be found below. However, it should be noted that this time plan might be subject to changes (in mutual agreement between all the partners within the project). In addition, this time plan will also be updated to reflect the progress of the project (by indicating completed and remaining tasks).
 
-| Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Decription    | Completed  | Required   | 
-| :----------- | :------------- | :--------: | :--------: |
-| 2022-04-??   | _SU_: "Dummy" server exposed externally through a fixed IP address and network port.  | &cross; | &check; |
-| 2022-04-??   | **Phase 0 completed:** _RH_ verifies that an arbitrary client is able to communicate with the server at _SU_.  | &cross; | &check; |
-| 2022-04-22   | _Flower_ framework installed at both _RH_ and _SU_. Initial tests to verify that models can be jointly trained and exchanged between both health regions. _Script files for initial tests\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
-| 2022-04-29   | Decentralized model jointly trained based on public tabular dataset (e.g., MIMIC-V). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
-| 2022-05-13   | Decentralized model jointly trained based on public image dataset (e.g., SIIM-ISIC). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &cross; |
-| 2022-05-27   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &cross; | &check; |
+| Id. | Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Decription    | Completed  | Required   | 
+| :-: | :----------- | :------------- | :--------: | :--------: |
+|  1  | 2022-04-22   | _SU_: "Dummy" server exposed externally through a fixed IP address and network port.  | &cross; | &check; |
+|  2  | 2022-04-22   | **Phase 0 completed:** _RH_ verifies that an arbitrary client is able to communicate with the server at _SU_.  | &cross; | &check; |
+|  3  | 2022-04-22   | _Flower_ framework installed at both _RH_ and _SU_. Initial tests to verify that models can be jointly trained and exchanged between both health regions. _Script files for initial tests\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
+|  4  | 2022-05-06   | Decentralized model jointly trained based on public tabular dataset (e.g., MIMIC-V). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
+|  5  | 2022-05-06   | Decentralized model jointly trained based on public tabular dataset (e.g., MIMIC-V). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &check; |
+|  6  | 2022-05-20   | Decentralized model jointly trained based on public image dataset (e.g., SIIM-ISIC). <br /> _Script files for training and validation\.\.\._ <br /> _RH_: `<TBA>` <br /> _SU_: `<TBA>` | &cross; | &cross; |
+|  7  | 2022-06-03   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &cross; | &check; |
 
 <br />
 
@@ -41,6 +42,8 @@ The principles of _federated learning_ (as it is known today), were initially pr
 
 The [Flower](https://flower.dev/) framework is a user-friendly framework designed for implementing and traning machinhe learning models in federated settings [2]. Flower is an open-source framework developed as a collaboration between the academic partners _CaMLSys Lab_, _University of Oxford_, _University of Cambridge_, and _University College London_, as well as the industrial partner _Adap_. This framework has been developed according to fundamental key characteristics required for a federated framework, such as _scalability_, _usability_, and _independency_ regarding operating systems and hardware platforms. However, the Flower framework is more than just a federated framework as it can be regarded as _" ...a unified approach to federated learning, analytics, and evaluation."_
 
+<br />
+
 ### Hardware Requirements
 
 The Flower framework has been designed as an open-source, extendable, and device agnostic framework. Furthermore, the framework has been designed to be suitable even for devices running lightweight federated learning workloads, such as Raspberry Pi or NVIDIA Jetson, which require minimal or no special configuration. For this project, we have, however, identified the following hardware requirements for _federated clients_ (at least one client in each healthcare region):
@@ -53,6 +56,7 @@ _Though we have listed minimal requirements, it is recommended to directly proce
 
 Besides the machines and requirements for federated clients, an additional machine (physical or virtual) is required to act as the _federated server_. Minimal hardware requirements will be sufficient for the federated server. The federated server is only required to be installed at one of both healthcare regions (we suggest _SU_).
 
+<br />
 
 ### Software Installation 
 
@@ -76,6 +80,18 @@ An essential prerequisite for the Flower framework is a basic installation of `p
   
 ```pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu```
 
+<br />  
+
+### Simple "Hello World" Example
+`<TBA>`
+<br />  
+
+### Example Tabular Dataset
+`<TBA>`
+<br />  
+
+### Example Image Dataset
+`<TBA>`
 <br />  
 
 ## References
