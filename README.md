@@ -34,7 +34,7 @@ The principles of _federated learning_ (as it is known today), were initially pr
 
 In practice, federated learning is a _client-server approach_ consisting of a _federated server_ and two (or more) _federated clients_. Each _federated client_ trains a _local model_ for one (or a few) _epochs_. Each locally trained model's parameters (or weights) are then sent to the _federated server_. Next, the _federated server_ aggregates a _joint global model_ (through a particular _aggregation function_). Subsequently, the _aggregated global model_ is sent back to each _federated client_, whereby the training continues locally. The training cycle of _federated learning_ (also referred to as _federated round_) is conceptually illustrated in **Figure 1**. This training cycle is, subsequently, repeated until the _global model_ has converged.
 
-![A conceptual illustration of the training cycle in federated learning](./conceptual.png)
+![A conceptual illustration of the training cycle in federated learning](./images/conceptual.png)
 
 <br />
 
