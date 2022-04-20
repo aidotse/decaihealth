@@ -78,12 +78,29 @@ An essential prerequisite for the Flower framework is a basic installation of `p
 
 ### Simple Example
 
-The script files `client.py` and `server.py` can be used to verify the [installation of both the Flower framework as well as the PyTorch machine learning framework](#software-installation). The script file `client.py` will download the _MNIST_ dataset (only downloaded once and stored in a local `data` folder), and subsequently, train a simple neural network to classify the handwritten digits found in the _MNIST_ dataset. This client script can be used to train a neural network both _locally_ (with the `--locally` argument) or in _federated settings_ (without the `--locally` argument). To verify that the PyTorch machine learning framework has been installed correctly, use the client script and train a neural network _locally_ for _15 epochs_ (specified by `--epochs` argument):
+The script files `client.py` and `server.py` can be used to verify the [installation of both the Flower framework as well as the PyTorch machine learning framework](#software-installation). The script file `client.py` will download the _MNIST_ dataset (only downloaded once and stored in a local `data` folder), and subsequently, train a simple neural network to classify the handwritten digits found in the _MNIST_ dataset. This client script can be used to train a neural network both _locally_ (with the `--locally` argument) or in _federated settings_ (without the `--locally` argument). To verify that the PyTorch machine learning framework has been installed correctly, use the client script and train a neural network _locally_ for _15 epochs_ (specified by the `--epochs` argument):
 
 ```python3 client.py --locally --load_mnist all --epochs 15```
 
 Running the example above will (eventually) result in a model trained to an accuracy of about _90%_. In the example above, it is also noticeable that the `--load_mnist` argument is used. This argument can be used to load only _MNIST even digits_ (`--load_mnist odd`) or _MNIST odd digits_ (`--load_mnist even`).
 If re-running the example above, training a neural network locally on only even or odd digits, the model's accuracy will never reach above _50%_. _However, if two clients are trained in federated settings - one client trained with even digits and another client trained with odd digits - the joint global model can reach an accuracy of about 90% (i.e., an accuracy comparable to a model trained with all the digits)._
+
+<br />
+
+To train two clients in _federated settings_, and to verify that the Flower framework has been installed correctly, use both the client and the server script and train a _joint global model_ for _15 rounds_ (notice, federated rounds are used instead of epochs, which is specified by the `--rounds` argument):
+
+1. Start the _federated server_ (_SU_-side):
+
+```python3 server.py --rounds 15 --host <server-dns>```
+
+2. Start the first _federated client_ trained on _even digits only_ (_SU_-side):
+
+```python3 client.py --load_mnist even --host <server-dns>```
+
+3. Start the second _federated client_ trained on _odd digits only_ (_RH_-side):
+
+```python3 client.py --load_mnist odd --host <server-dns>```
+
 
 
 ### Example Tabular Data
