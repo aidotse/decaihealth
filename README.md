@@ -1,6 +1,6 @@
 # Decentralized AI in Healthcare (DecAIHealth)
 
-The project _Decentralized AI in Healthcare_ (DecAIHealth) is a project as part of the strategic program [Decentralized AI, AI Sweden](https://www.ai.se/en/projects-9/decentralized-ai). The project includes the two partners _Region Halland_ (RH) and _Västra Götalandsregionen/Sahlgrenska University Hospital_ (VGR/SU), and is coordinated by _AI Sweden_.
+The project _Decentralized AI in Healthcare_ (DecAIHealth) is a project as part of the strategic program [Decentralized AI, AI Sweden](https://www.ai.se/en/projects-9/decentralized-ai). The project includes the two partners _Region Halland_/_Halmstad University_ (RH/HU) and _Västra Götalandsregionen/Sahlgrenska University Hospital_ (VGR/SU), and is coordinated by _AI Sweden_.
 
 The overarching purpose of this project is to evaluate the possibilities for jointly training and exchanging machine learning models between Swedish healthcare regions/hospitals. For this purpose, methods will be used for decentralized training of joint machine learning models between both health regions, for example through _federated learning_.
 
@@ -18,13 +18,14 @@ The project will last until the end of 2022, and a tentative time plan for the p
 
 | Id. | Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Decription    | Completed  | Required   | 
 | :-: | :----------- | :------------- | :--------: | :--------: |
-|  1  | 2022-04-22   | _SU_: "Dummy" server exposed externally through a fixed IP address and network port.  | &cross; | &check; |
+|  1  | 2022-04-22   | _SU_: "Dummy" server exposed externally through a fixed IP address and network port.  | &check; | &check; |
 |  2  | 2022-04-22   | **Phase 0 completed:** _RH_ verifies that an arbitrary client is able to communicate with the server at _SU_.  | &cross; | &check; |
 |  3  | 2022-04-22   | _Flower_ framework installed on machines with **minimal requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &cross; | &check; |
 |  4  | 2022-05-06   | Decentralized model jointly trained based on public _tabular dataset_ (e.g., MIMIC-V). <br /> Model trained and validated according to [Example Tabular Data](#example-tabular-data). | &cross; | &check; |
 |  5  | 2022-05-13   | _Flower_ framework installed on machines with **requested requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &cross; | &check; |
 |  6  | 2022-05-20   | Decentralized model jointly trained based on public _imagary dataset_ (e.g., SIIM-ISIC). <br /> Model trained and validated according to [Example Imagary Data](#example-imagary-data). | &cross; | &cross; |
 |  7  | 2022-06-03   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &cross; | &check; |
+|  8  | 2022-06-30   | _HU_: An initial draft for an application for ethical review.  | &cross; | &check; |
 
 <br />
 
@@ -76,7 +77,12 @@ An essential prerequisite for the Flower framework is a basic installation of `p
 
 
 ### Simple Example
-`<TBA>`
+
+The script files `simple_client.py` and `simple_server.py` can be used to verify the installation of both the Flower framework as well as the PyTorch machine learning framework. The script file `simple_client.py` will download the _MNIST_ dataset (only downloaded once and stored in a local `data` folder), and subsequently, train a simple neural network to classify the handwritten digits found in the _MNIST_ dataset. This client script can be used to train a neural network both _locally_ (with the `--locally` argument) or in _federated settings_ (without the `--locally` argument). To verify that the PyTorch machine learning framework has been installed correctly, use the client script and train a neural network model _locally_ for _15 epochs_ (specified by `--epochs` argument):
+
+```python3 simple_client.py --locally --load_mnist all --epochs 15```
+
+Running the example above will (eventually) result in a model trained to an accuracy of about _90%_. In the example above, it is also noticeable that the `--load_mnist` argument is used. This argument can be used to load only _MNIST even digits_ (`--load_mnist odd`) or _MNIST odd digits_ (`--load_mnist even`). If re-running the example above and training a neural network model locally on either even or odd digits, the model's accuracy will never reach above _50%_.
 
 
 ### Example Tabular Data
