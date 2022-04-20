@@ -85,23 +85,21 @@ The script files `client.py` and `server.py` can be used to verify the [installa
 Running the example above will (eventually) result in a model trained to an accuracy of about _90%_. In the example above, it is also noticeable that the `--load_mnist` argument is used. This argument can be used to load only _MNIST even digits_ (`--load_mnist odd`) or _MNIST odd digits_ (`--load_mnist even`).
 If re-running the example above, training a neural network locally on only even or odd digits, the model's accuracy will never reach above _50%_. _However, if two clients are trained in federated settings - one client trained with even digits and another client trained with odd digits - the joint global model can reach an accuracy of about 90% (i.e., an accuracy comparable to a model trained with all the digits)._
 
-<br />
-
-To train two clients in _federated settings_, and to verify that the Flower framework has been installed correctly, use both the client and the server script and train a _joint global model_ for _15 rounds_ (notice, federated rounds are used instead of epochs, which is specified by the `--rounds` argument):
+To train two clients in _federated settings_, and to verify that the Flower framework has been installed correctly, use both the client and the server script and train a _joint global model_ for _15 rounds_ (notice, _federated rounds_ are here used instead of _epochs_, which is specified by the `--rounds` argument):
 
 1. Start the _federated server_ (_SU_-side):
 
-```python3 server.py --rounds 15 --host <server-dns>```
+   ```python3 server.py --rounds 15 --host <server-dns>```
 
-2. Start the first _federated client_ trained on _even digits only_ (_SU_-side):
+2. Start the first _federated client_ that will train with _even digits only_ (_SU_-side):
 
-```python3 client.py --load_mnist even --host <server-dns>```
+   ```python3 client.py --load_mnist even --host <server-dns>```
 
-3. Start the second _federated client_ trained on _odd digits only_ (_RH_-side):
+3. Start the second _federated client_ that will train with _odd digits only_ (_RH_-side):
 
-```python3 client.py --load_mnist odd --host <server-dns>```
+   ```python3 client.py --load_mnist odd --host <server-dns>```
 
-
+_Notice that the server expects that two federated clients are connected (i.e., the server will not aggregate a global model until it has received local models from both clients). Also, in the example above, there is a `--host <server-dns>` argument used. The actual DNS for the federated server has been sent out by e-mail and will not be exposed in this repository (for obvious security reasons)!_
 
 ### Example Tabular Data
 `<TBA>`
