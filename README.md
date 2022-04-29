@@ -21,9 +21,9 @@ The project will last until the end of 2022, and a tentative time plan for the p
 |  1  | 2022-04-22   | _SU_: "Dummy" server exposed externally through a fixed IP address and network port.  | &check; | &check; |
 |  2  | 2022-04-22   | **Phase 0 completed:** _RH_ verifies that an arbitrary client is able to communicate with the server at _SU_.  | &check; | &check; |
 |  3  | 2022-04-22   | _Flower_ framework installed on machines with **minimal requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &cross; | &check; |
-|  4  | 2022-05-06   | Decentralized model jointly trained based on public _imagary dataset_ (e.g., SIIM-ISIC). <br /> Model trained and validated according to [Example Imagary Data](#example-imagary-data). | &cross; | &cross; |
+|  4  | 2022-05-06   | Decentralized model jointly trained based on public _imagary dataset_ (e.g., SIIM-ISIC). <br /> Model trained and validated according to [Example Imagary Data](#example-imagary-data). | &cross; | &check; |
 |  5  | 2022-05-13   | _Flower_ framework installed on machines with **requested requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &cross; | &check; |
-|  6  | 2022-06-03   | Decentralized model jointly trained based on public _tabular dataset_ (e.g., MIMIC-V). <br /> Model trained and validated according to [Example Tabular Data](#example-tabular-data). | &cross; | &check; |
+|  6  | 2022-06-03   | Decentralized model jointly trained based on public _tabular dataset_ (e.g., MIMIC-V). <br /> Model trained and validated according to [Example Tabular Data](#example-tabular-data). | &cross; | &cross; |
 |  7  | 2022-06-10   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &cross; | &check; |
 |  8  | 2022-06-30   | _HU_: An initial draft for an application for ethical review.  | &cross; | &check; |
 
