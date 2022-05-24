@@ -2,7 +2,7 @@
 
 The simple example desribed in the README will be used as a first test. To make sure we run the clients in similar environments, Docker will be used.
 
-1. Download the repository to the server and change the name of it to decaihealth (Docker can't handle upper case).
+1. Download the repository to the server.
 
 2. Build the Docker image
 
