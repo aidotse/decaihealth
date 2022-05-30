@@ -12,7 +12,7 @@ The simple example desribed in the README will be used as a first test. To make 
 
 3. Start the Docker container
 
-   ```docker run -d --rm -it --volume $(pwd):/workspace --name decaihealth decaihealth```
+   ```docker run -d --rm -it --volume $(pwd):/workspace --gpus all --name decaihealth decaihealth```
 
 4. Execute the container
 
