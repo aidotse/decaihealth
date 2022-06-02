@@ -10,23 +10,23 @@ The first steps runs the experiment locally, and can be done separately by both 
 
 2. Download the dataset here https://www.kaggle.com/datasets/nroman/melanoma-external-malignant-256 and place it in /decentralized_ai_dermatology/data and unzip it.
 
-3. Use the provided Dockerfile to build an image with the required library dependencies, provided in requirements.txt.
+3. Use the provided Dockerfile to build an image with the required library dependencies, listed in requirements.txt.
 
     ```cd decentralized_ai_dermatology```
 
     ```docker build -t decentralized_ai_dermatology --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) -f Dockerfile .```
 
-4. Start the container
+4. Start the Docker container
 
     ```docker run -d --rm -it --volume $(pwd):/workspace --shm-size 16G --gpus all --name decentralized_ai_dermatology decentralized_ai_dermatology```
 
-5. Execute container
+5. Execute the container
 
     ```docker exec -it decentralized_ai_dermatology bash```
 
-## Local tests
+## Individual tests
 
-6. To see that everything works, train the model locally, without any federated learning. It will train the classifier on 5% of the data. 
+6. To verify that everything is working, train the model locally, without any federated learning. This will train the classifier on 5% of the data. 
 
     ```python train_local.py --path_data "/workspace/data" --nowandb --num_partitions 20 --partition 0```
 
@@ -38,7 +38,9 @@ The first steps runs the experiment locally, and can be done separately by both 
 
     ```python client_isic.py --path "/workspace/data" --num_partitions 2 --partition 0 --nowandb --batch_train 16```
 
-9. Now that you know everything works locally, try running two clients that connects with the common server. Make sure the server is up and running (someone from SU has to do this). Try the connection to the server by 
+    The server is configured so that two clients have to be connected beore the training starts. When both clients are started, the training should start and the progress should be printed in both terminals.
+
+9. Now that you know everything works with a local server, try running two clients that connects with the common server. Make sure the server is up and running (someone from SU has to do this). Try the connection to the server by 
 
     ```curl "hostname":8080```
 
