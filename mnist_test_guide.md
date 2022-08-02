@@ -8,7 +8,7 @@ The first steps runs the experiment locally, and can be done separately by both 
 
 1. Download this repository to the server:
 
-```git clone --recursive https://github.com/aidotse/decaihealth.git```
+   ```git clone --recursive https://github.com/aidotse/decaihealth.git```
 
 2. Use the provided Dockerfile to build an image with the required library dependencies, listed in `requirements.txt`:
 
@@ -53,4 +53,4 @@ The first steps runs the experiment locally, and can be done separately by both 
 
 ## Joint test
 
-9. The final step is to start one client from each organization. This is done exactly as in step 8, with some coordination. 
+9. The final step is to start one client from each organization. This is done exactly as in __step 8__, with some coordination. 
