@@ -1,0 +1,3 @@
+[submodule "decentralized_ai_dermatology"]
+	path = decentralized_ai_dermatology
+	url = https://github.com/aidotse/decentralizedAI_dermatology.git
