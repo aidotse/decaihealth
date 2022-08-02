@@ -9,7 +9,7 @@ The first steps runs the experiment locally, and can be done separately by both 
 1. ~~Download the repository here https://github.com/aidotse/decentralizedAI_dermatology and rename it decentralized_ai_dermatology~~
 Download this repository, including submodules, to the server:
 
-```git clone --recursive https://github.com/aidotse/decaihealth.git```
+    ```git clone --recursive https://github.com/aidotse/decaihealth.git```
 
 2. Download the [SIIM-ISIC dataset](https://www.kaggle.com/datasets/nroman/melanoma-external-malignant-256) and place it in `/decentralized_ai_dermatology/data` and `unzip` it.
 
@@ -47,7 +47,7 @@ Download this repository, including submodules, to the server:
 
     ```curl "hostname":8080```
 
-    where "hostname" is the DNS sent out to the group. This should return something like `curl: (1) Received HTTP/0.9 when not allowed`. Next, start a client by running:
+    where `"hostname"` is the DNS sent out to the group. This should return something like `curl: (1) Received HTTP/0.9 when not allowed`. Next, start a client by running:
 
     ```python client_isic.py --path "/workspace/data" --num_partitions 2 --partition 0 --nowandb --host "hostname" --batch_train 16```
 
@@ -55,4 +55,4 @@ Download this repository, including submodules, to the server:
 
 ## Joint test
 
-10. The final step is to start one client from each organization. This is done exactly as in step 9, with some coordination. 
+10. The final step is to start one client from each organization. This is done exactly as in __step 9__, with some coordination. 
