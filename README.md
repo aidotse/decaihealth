@@ -20,11 +20,11 @@ The project will last until the end of 2022, and a tentative time plan for the p
 | :-: | :----------- | :------------- | :--------: | :--------: |
 |  1  | 2022-04-22   | _SU_: "Dummy" server exposed externally through a fixed IP address and network port.  | &check; | &check; |
 |  2  | 2022-04-22   | **Phase 0 completed:** _RH_ verifies that an arbitrary client is able to communicate with the server at _SU_.  | &check; | &check; |
-|  3  | 2022-04-22   | _Flower_ framework installed on machines with **minimal requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &cross; | &check; |
-|  4  | 2022-05-06   | Decentralized model jointly trained based on public _imagary dataset_ (e.g., SIIM-ISIC). <br /> Model trained and validated according to [Example Imagary Data](#example-imagary-data). | &cross; | &check; |
-|  5  | 2022-05-13   | _Flower_ framework installed on machines with **requested requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &cross; | &check; |
-|  6  | 2022-06-03   | Decentralized model jointly trained based on public _tabular dataset_ (e.g., MIMIC-V). <br /> Model trained and validated according to [Example Tabular Data](#example-tabular-data). | &cross; | &cross; |
-|  7  | 2022-06-10   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &cross; | &check; |
+|  3  | 2022-04-22   | _Flower_ framework installed on machines with **minimal requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [Simple Example](#simple-example). | &check; | &check; |
+|  4  | 2022-05-06   | _Flower_ framework installed on machines with **requested requirements** (according to [Hardware Requirements](#hardware-requirements)) at both _RH_ and _SU_. Installation verified by a jointly trained model according to [MNIST Test Guide](#mnist-test-guide). | &check; | &check; |
+|  5  | 2022-05-13   | Decentralized model jointly trained based on public _imagary dataset_ (e.g., SIIM-ISIC). <br /> Model trained and validated according to [ISIC Test Guide](#isic-test-guide). | &check; | &check; |   
+|  6  | 2022-06-03   | Decentralized model jointly trained based on public _tabular dataset_ (e.g., MIMIC-V). <br /> Model trained and validated according to [MIMIC Test Guide](#mimic-test-guide). | &cross; | &cross; |
+|  7  | 2022-06-10   | **Phase 1 completed:** test report, based on validation of jointly trained decentralized models, added to this repository.  | &check; | &check; |
 |  8  | 2022-06-30   | _HU_: An initial draft for an application for ethical review.  | &cross; | &check; |
 
 <br />
@@ -78,7 +78,11 @@ An essential prerequisite for the Flower framework is a basic installation of `p
 
 ### Simple Example
 
-The script files `client.py` and `server.py` can be used to verify the [installation of both the Flower framework as well as the PyTorch machine learning framework](#software-installation). The script file `client.py` will download the _MNIST_ dataset (only downloaded once and stored in a local `data` folder), and subsequently, train a simple neural network to classify the handwritten digits found in the _MNIST_ dataset. This client script can be used to train a neural network both _locally_ (with the `--locally` argument) or in _federated settings_ (without the `--locally` argument). To verify that the PyTorch machine learning framework has been installed correctly, use the client script and train a neural network _locally_ for _15 epochs_ (specified by the `--epochs` argument):
+First of all, download this repository with included submodules: 
+
+```git clone --recursive https://github.com/aidotse/decaihealth.git```
+
+From within the dowloaded folder (`decaihealth`), the script files `client.py` and `server.py` can be used to verify the [installation of both the Flower framework as well as the PyTorch machine learning framework](#software-installation). The script file `client.py` will download the _MNIST_ dataset (only downloaded once and stored in a local `data` folder), and subsequently, train a simple neural network to classify the handwritten digits found in the _MNIST_ dataset. This client script can be used to train a neural network both _locally_ (with the `--locally` argument) or in _federated settings_ (without the `--locally` argument). To verify that the PyTorch machine learning framework has been installed correctly, use the client script and train a neural network _locally_ for _15 epochs_ (specified by the `--epochs` argument):
 
 ```python3 client.py --locally --load_mnist all --epochs 15```
 
@@ -102,13 +106,16 @@ To train two clients in _federated settings_, and to verify that the Flower fram
 _Notice that the server expects that two federated clients are connected (i.e., the server will not aggregate a global model until it has received local models from both clients). Also, in the example above, there is a `--host <server-dns>` argument used. The actual DNS for the federated server has been sent out by e-mail and will not be exposed in this repository (for obvious security reasons)!_
 
 
-### Example Imagary Data
-`<TBA>`
+### MNIST Test Guide
+_See guide in file:_ [`mnist_test_guide.md`](https://github.com/aidotse/decaihealth/blob/main/mnist_test_guide.md) 
 
 
-### Example Tabular Data
-`<TBA>`
+### ISIC Test Guide 
+_See guide in file:_ [`isic_test_guide.md`](https://github.com/aidotse/decaihealth/blob/main/isic_test_guide.md)
 
+
+### MIMIC Test Guide
+_Not essential to develop and test a model for an open tabular dataset as a model for tabular data already exist at RH._
 
 <br />  
 
