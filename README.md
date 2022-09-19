@@ -1,6 +1,6 @@
 # Decentralized AI in Healthcare (DecAIHealth)
 
-The project _Decentralized AI in Healthcare_ (DecAIHealth) is a project as part of the strategic program [Decentralized AI, AI Sweden](https://www.ai.se/en/projects-9/decentralized-ai). The project includes the two partners _Region Halland_/_Halmstad University_ (RH/HU) and _Västra Götalandsregionen/Sahlgrenska University Hospital_ (VGR/SU), and is coordinated by _AI Sweden_.
+The project _Decentralized AI in Healthcare_ (DecAIHealth) is a project under the umbrella of [Information Driven Healthcare, AI Sweden](https://www.ai.se/en/projects-9/information-driven-healthcare). The project includes the two partners _Region Halland_/_Halmstad University_ (RH/HU) and _Västra Götalandsregionen/Sahlgrenska University Hospital_ (VGR/SU), and is coordinated by _AI Sweden_.
 
 The overarching purpose of this project is to evaluate the possibilities for jointly training and exchanging machine learning models between Swedish healthcare regions/hospitals. For this purpose, methods will be used for decentralized training of joint machine learning models between both health regions, for example through _federated learning_.
 
